@@ -1,38 +1,84 @@
-.App {
-  text-align: center;
+body {
+  color: #9a8866;
+  background-color: #441614;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 16px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.logo {
+  height: 240px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.form {
+  max-width: 720px;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 16px;
+  border: 1px solid #9a8866;
+}
+
+.form > *:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+form.form > input,
+form.form > textarea {
+  background: hsla(0, 0%, 100%, 0.05);
+}
+
+.dropzone {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 16px;
+  border-width: 2px;
+  border-color: #9a8866;
+  border-style: dashed;
+  background-color: hsla(0, 0%, 100%, 0.05);
+  color: #9a8866;
+  outline: none;
+  transition-property: var(--chakra-transition-property-common);
+  transition-duration: var(--chakra-transition-duration-normal);
 }
 
-.App-link {
-  color: #61dafb;
+.dropzone.error {
+  border-color: crimson;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dropzone:hover {
+  border-color: rgb(126, 94, 34);
+}
+
+.selected-file {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.selected-file > svg {
+  cursor: pointer;
+}
+
+.selected-file.uploading {
+  opacity: 0.5;
+}
+
+.selected-file.uploading > svg {
+  cursor: not-allowed;
+}
+
+
+.upload-container div {
+  transition-property: width;
+  transition-duration: var(--chakra-transition-duration-normal);
+}
+
+.upload-container > div {
+  background: hsla(0, 0%, 100%, 0.05) !important;
 }
